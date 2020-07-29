@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TFG García Monclú</title>
+    <link rel="stylesheet" href="{% static "css/Menu2.css" %}" />
+    <link rel="stylesheet" href="{% static "css/Prediction.css" %}" />
+    <link rel="stylesheet" href="{% static "css/Button.css" %}" />
+</head>
+
+<body>
+    <section class="strips">
+        <div class="strips__strip">
+            <a href="/prediccion">
+                <div class="strip__content">
+                    <h1 class="strip__header">Segmentación</h1>
+                </div>
+            </a>
+        </div>
+        <div class="strips__strip" style="font-size:1.5em">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="file" class="button" name="model">
+                <button class="buttonUpload" name="uploadModel" value="uploadModel">Subir modelo</button>
+                <br>
+                <select class="select" name="modelName">
+                    <option value="">-</option>
+                    {{ options | safe }}
+                </select>
+                <button class="button" name="loadModel" value="loadModel">Cargar modelo</button>
+            </form>
+        </div>
+        <div class="strips__strip">
+            {% if checkModel %}
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="file" class="button" name="image">
+                <button class="buttonUpload" name="uploadImage" value="uploadImage">Subir imagen</button>
+                <br>
+                {% if url %}
+                <div class="img">
+                    <img class="center-fit" src="{{ url }}">
+                    <h2>{{ leyenda }}</h2>
+                </div>
+                {% endif %}
+            </form>
+            {% endif %}
+        </div>
+    </section>
+</body>
+
+</html>

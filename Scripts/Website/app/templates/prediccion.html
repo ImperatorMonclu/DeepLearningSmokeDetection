@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TFG García Monclú</title>
+    <link rel="stylesheet" href="{% static "css/Menu2.css" %}" />
+    <link rel="stylesheet" href="{% static "css/Prediction.css" %}" />
+    <link rel="stylesheet" href="{% static "css/Button.css" %}" />
+</head>
+
+<body>
+    <section class="strips">
+        <div class="strips__strip">
+            <a href="/">
+                <div class="strip__content">
+                    <h1 class="strip__header">Predicción</h1>
+                </div>
+            </a>
+        </div>
+        <div class="strips__strip" style="font-size:1.5em">
+            <a href="/prediccion/clasificacion">
+                <div class="strip__content">
+                    <h1 class="strip__header">Clasificación</h1>
+                </div>
+            </a>
+        </div>
+        <div class="strips__strip">
+            <a href="/prediccion/segmentacion">
+                <div class="strip__content">
+                    <h1 class="strip__header">Segmentación</h1>
+                </div>
+            </a>
+        </div>
+    </section>
+</body>
+
+</html>

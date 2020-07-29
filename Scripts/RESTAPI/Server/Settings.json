@@ -1,0 +1,10 @@
+{
+    "Relative": "C:\\AV\\AI\\Projects\\DeepLearningSmokeDetection\\RESTAPI\\Server",
+    "SegmentationColor": [
+        63,
+        255,
+        0
+    ],
+    "Host": "127.0.0.1",
+    "Port": 16384
+}

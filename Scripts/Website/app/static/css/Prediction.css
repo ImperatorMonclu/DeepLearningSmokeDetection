@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0px;
+    background-color: black;
+}
+
+.img {
+    height: 100%;
+}
+
+.center-fit {
+    max-width: 100%;
+    max-height: 64vh;
+    margin: auto;
+}
+
+@media screen and (max-width: 760px) {
+
+    .img {
+        height: 100%;
+    }
+    
+    .center-fit {
+        max-width: 100%;
+        max-height: 26vh;
+        margin: auto;
+    }
+}
+
+h2 {
+    color: green;
+}
+
+h1 {
+    color: white;
+}

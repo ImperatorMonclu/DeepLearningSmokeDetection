@@ -1,0 +1,64 @@
+{
+    "Relative": "C:\\AV\\AI\\Projects\\DeepLearningSmokeDetection\\RESTAPI\\Client",
+    "Host": "http://127.0.0.1",
+    "Port": 16384,
+    "Classification": {
+        "ModelNames": [
+            "EfficientNetB6Basico",
+            "InceptionResNetV2Basico",
+            "ResNet152V2Basico"
+        ],
+        "ClassNames": [
+            [
+                "neutral",
+                "smoke"
+            ],
+            [
+                "neutral",
+                "smoke"
+            ],
+            [
+                "neutral",
+                "smoke"
+            ]
+        ]
+    },
+    "Segmentation": {
+        "ModelNames": [
+            "UNetEfficientNetB0TransposeCorrecta",
+            "UNetEfficientNetB0TransposeExagerada",
+            "UNetEfficientNetB0TransposeFlips",
+            "UNetEfficientNetB0TransposeNada",
+            "UNetEfficientNetB4TransposeBasico",
+            "UNetEfficientNetB4UpsamplingBasico",
+            "UNetEfficientNetB6TransposeBasico",
+            "UNetInceptionResNetV2TransposeBasico"
+        ],
+        "ClassNames": [
+            [
+                "smoke"
+            ],
+            [
+                "smoke"
+            ],
+            [
+                "smoke"
+            ],
+            [
+                "smoke"
+            ],
+            [
+                "smoke"
+            ],
+            [
+                "smoke"
+            ],
+            [
+                "smoke"
+            ],
+            [
+                "smoke"
+            ]
+        ]
+    }
+}

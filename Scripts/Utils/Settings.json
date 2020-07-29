@@ -1,0 +1,15 @@
+{
+    "//BestCheckpoint": "",
+    "CurrentPath": "C:\\Users\\mauro\\Documents\\Minsait\\NoOneDrive\\Humos\\Models\\Validos\\Classification\\ResNet152V2",
+    "RelativeData": "C:\\Users\\mauro\\Documents\\Minsait\\NoOneDrive\\Humos\\Data\\Classification",
+    "ClassNames": [
+        "smoke"
+    ],
+    "ImageDimensions": [
+        512,
+        512,
+        3
+    ],
+    "Optimizer": "Adam",
+    "Mode": "classification"
+}

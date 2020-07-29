@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TFG García Monclú</title>
+    <link rel="stylesheet" href="{% static "css/Menu1.css" %}" />
+    <link rel="stylesheet" href="{% static "css/Prediction.css" %}" />
+</head>
+<body>
+    <section class="strips">
+        <div class="strips__strip">
+            <a href="/prediccion">
+                <div class="strip__content">
+                    <h1 class="strip__header">Predicción</h1>
+                </div>
+            </a>
+        </div>
+        <div class="strips__strip">
+            <h1>La máquina está ocupada. Espere.</h1>
+        </div>
+    </section>
+</body>
+</html>

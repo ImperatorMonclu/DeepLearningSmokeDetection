@@ -1,0 +1,30 @@
+{
+    "//Directory where folder with files will be created": "",
+    "Relative": "C:\\AV\\AI\\Projects\\DeepLearningSmokeDetection\\Models",
+    "//Check directory structure": "",
+    "RelativeData": "C:\\AV\\AI\\Projects\\DeepLearningSmokeDetection\\Data\\Segmentation",
+    "//Model save with name prefix and date": "",
+    "NamePrefix": "UNetEfficientNetB6TransposeCorrecta",
+    "//Class names - Folder names": "",
+    "ClassNames": [
+        "smoke"
+    ],
+    "ImageDimensions": [
+        512,
+        512,
+        3
+    ],
+    "BatchSize": 1,
+    "LearningRate": 0.001,
+    "//Save the best metric indicated in Settings.py": "",
+    "SaveBest": true,
+    "Epochs": 128,
+    "//classification or segmentation": "",
+    "Mode": "segmentation",
+    "//Check available models in Models.md": "",
+    "ModelName": "EfficientNetB6",
+    "//None or imagenet": "",
+    "Weights": "None",
+    "//Only for segmentation transpose or upsampling": "",
+    "DecoderBlock": "transpose"
+}

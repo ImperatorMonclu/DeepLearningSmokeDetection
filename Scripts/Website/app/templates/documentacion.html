@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TFG García Monclú</title>
+    <link rel="stylesheet" href="{% static "css/Menu1.css" %}" />
+</head>
+<body>
+    <section class="strips">
+        <div class="strips__strip">
+            <a href="/">
+                <div class="strip__content">
+                    <h1 class="strip__header">Documentación</h1>
+                </div>
+            </a>
+        </div>
+        <div class="strips__strip">
+            <embed src="{% static "doc/Documentacion.pdf" %}" width="100%" height="100%" />
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,7 @@
+{
+    "Relative": "C:\\AV\\AI\\Projects\\DeepLearningSmokeDetection\\Models\\UNetEfficientNetB6TransposeCorrecta20200728140037",
+    "Host": "127.0.0.1",
+    "Port": 8192,
+    "Debug": true,
+    "DebugPort": 8191
+}
