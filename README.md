@@ -136,11 +136,13 @@ $ bash Scripts/RESTAPIClient.sh
 
 Instalar el sistema operativo [dietPi](https://dietpi.com/phpbb/viewtopic.php?p=9#p9).
 
-A continuación, se deberá copiar la carpeta RaspberryPi/Smoke en un pen drive USB directamente en el directorio raíz (Ejemplo F:/Smoke) y conectarlo a la Raspberry Pi.
+A continuación, con un ordenador a parte se deberá copiar la carpeta RaspberryPi/Smoke en un pen drive USB directamente en el directorio raíz (Ejemplo F:/Smoke) y conectarlo a la Raspberry Pi.
 
-Ejecutar los siguientes comandos en el orden que corresponde:
+Ejecutar en la shell de la Raspberry Pi los siguientes comandos en el orden que corresponde:
 ```sh
-$ bash Scripts/RESTAPIClient.sh
+$ cd /root
+$ sudo wget https://gist.githubusercontent.com/MauroGarciaMonclu/731e887fe7a7f2c71c345f34e66d16ac/raw/15b139f9a93a67250a47ebd50a8e7250acc501ca/Install.sh
+$ sudo bash /root/Install.sh
 ```
 
 Conectar cámaras USB.
