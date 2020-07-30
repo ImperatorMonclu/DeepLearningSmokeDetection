@@ -3,6 +3,7 @@ DataRaw/*
 Models/*
 RESTAPI/*
 Website/*
+WindowsFix.bat
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -7,4 +7,6 @@ urlpatterns = [
     path('prediccion/clasificacion', views.classification),
     path('prediccion/segmentacion', views.segmentation),
     path('documentacion', views.documentation),
+    path('manual', views.manual),
+    path('instalacion', views.instalacion),
 ]

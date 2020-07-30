@@ -92,28 +92,34 @@ async def clearModel():
 # Recibe la imagen serializada y manda predicción sobre clasificación
 @app.post("/image-classification")
 async def uploadImageClassification(imageRequest: ImageJSON):
+    # Decodifica la imagen previamente serializada
     image = cvtColor(imdecode(frombuffer(
         b64decode((imageRequest.image).encode('ascii')), uint8), 1), COLOR_BGR2RGB)
 
+    # Prepara la imagen con una correcta redimensión
     imageResized = resizeClassification([int(gl.Model.input.shape[1]), int(
         gl.Model.input.shape[2])]).augment_image(image)
 
     model = gl.Model
     imagePredicted = array([imageResized/255.0]).astype(float32)
 
+    # Predice la imagen calculando el tiempo
     before = datetime.now()
     prediction = model.predict(imagePredicted, batch_size=1)
     after = datetime.now()
 
+    # Comprueba que clase ha predicho
     if len(gl.ClassNames) > 2:
         predictClass = gl.ClassNames[argmax(prediction[0], axis=1)]
     else:
         predictClass = gl.ClassNames[0 if prediction[0][0] < 0.5 else 1]
 
+    # Guarda la imagen original clasificada en el servidor
     classDir = join(predictionsDir, gl.ModelName, predictClass)
     imwrite(join(classDir, imageRequest.filename),
             cvtColor(image, COLOR_RGB2BGR))
 
+    # Prepara la respuesta al cliente
     imageDict = imageRequest.dict()
     imageDict.update({"model": gl.ModelName})
     imageDict.update({"prediction": predictClass})
@@ -125,20 +131,24 @@ async def uploadImageClassification(imageRequest: ImageJSON):
 # Recibe la imagen serializada y manda predicción sobre segmentación
 @app.post("/image-segmentation")
 async def uploadImageSegmentation(imageRequest: ImageJSON):
+    # Decodifica la imagen previamente serializada
     image = cvtColor(imdecode(frombuffer(
         b64decode((imageRequest.image).encode('ascii')), uint8), 1), COLOR_BGR2RGB)
     (x, y, _) = image.shape
 
+    # Prepara la imagen con una correcta redimensión
     imageResized = resizeSegmentation([int(gl.Model.input.shape[1]), int(
         gl.Model.input.shape[2])]).augment_image(image)
 
     model = gl.Model
     imagePredicted = array([imageResized/255.0]).astype(float32)
 
+    # Predice la imagen calculando el tiempo
     before = datetime.now()
     prediction = model.predict(imagePredicted, batch_size=1)
     after = datetime.now()
 
+    # Crea la máscara predicha por categoría
     listPrediction = []
     for i in range(prediction.shape[-1]):
         imagePrediction = (prediction[0][..., i]*255.0).astype(uint8)
@@ -170,10 +180,12 @@ async def uploadImageSegmentation(imageRequest: ImageJSON):
         _, data = imencode('.jpg', imagePrepared)
         _, dataThresh = imencode('.jpg', thresh)
 
+        # Codifica las imágenes resultado junto a la máscara para mandarlo al cliente
         listPrediction.append(gl.ClassNames[i])
         listPrediction.append((b64encode(data.tobytes())).decode('ascii'))
         listPrediction.append((b64encode(dataThresh.tobytes())).decode('ascii'))
 
+        # Guarda la imagen original y la máscara predicha
         modelDir = join(predictionsDir, gl.ModelName)
         imageDir = join(modelDir, 'Images')
         if not exists(imageDir):
@@ -183,6 +195,7 @@ async def uploadImageSegmentation(imageRequest: ImageJSON):
         imwrite(join(modelDir, gl.ClassNames[i], (imageRequest.filename).split(
             '.')[0]+'.png'), thresh)
 
+    # Prepara la respuesta al cliente
     imageDict = imageRequest.dict()
     imageDict.update({"model": gl.ModelName})
     imageDict.update({"prediction": listPrediction})

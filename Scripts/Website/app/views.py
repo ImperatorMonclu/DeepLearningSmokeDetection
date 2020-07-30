@@ -60,7 +60,7 @@ ModelName = ''
 
 Model = None
 
-CurrentIP = '127.0.0.1'
+CurrentIP = ''
 
 LastUsed = datetime.now()
 
@@ -268,3 +268,13 @@ def segmentation(request):
 # Página donde muestra la documentación
 def documentation(request):
     return render(request, 'documentacion.html')
+
+
+# Página donde muestra el manual
+def manual(request):
+    return render(request, 'manual.html')
+
+
+# Página donde muestra la instalacion
+def instalacion(request):
+    return render(request, 'instalacion.html')
